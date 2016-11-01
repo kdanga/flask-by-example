@@ -12,6 +12,13 @@ manager = Manager(app)
 
 manager.add_command('db', MigrateCommand)
 
+@manager.command
+def devserver():
+    """
+        runs devserver at host='0.0.0.0' (Can view is as localhost on outside vagrant)
+    """
+    app.run(host='0.0.0.0')
+
 
 if __name__ == '__main__':
     manager.run()
